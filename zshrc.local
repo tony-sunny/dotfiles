@@ -1,0 +1,49 @@
+### OPTIONS
+
+## Command History
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+export HISTIGNORE="ls::exit:clear:cd:cd .."
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+
+setopt AUTO_CD
+setopt NO_BEEP
+
+## Completion 
+autoload -Uz compinit
+compinit
+zstyle :compinstall filename '/home/tony/.zshrc'
+
+## Prompt
+autoload -Uz promptinit
+promptinit
+prompt grml
+zstyle ':prompt:grml:left:setup' items newline rc user at host path percent vcs
+zstyle ':prompt:grml:left:items:time' pre '  '
+zstyle ':prompt:grml:left:items:user' pre '%B%F{green}'
+zstyle ':prompt:grml:left:items:user' post '%b%f'
+zstyle ':prompt:grml:left:items:at' pre '%B%F{red}'
+zstyle ':prompt:grml:left:items:at' post '%b%f'
+zstyle ':prompt:grml:left:items:host' pre '%B%F{blue}'
+zstyle ':prompt:grml:left:items:host' post '%b%f'
+
+## bindkeys
+bindkey "^R" history-incremental-search-backward
+bindkey "[B" history-search-forward
+bindkey "[A" history-search-backward
+
+## Souce files and env
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
+source ~/.shell_aliases
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export GOPATH=$HOME/workspace/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
