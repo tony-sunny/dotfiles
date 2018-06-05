@@ -1,5 +1,9 @@
 ### OPTIONS
 
+setopt AUTO_CD
+setopt NO_BEEP
+unsetopt prompt_cr prompt_sp
+
 ## Command History
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -9,9 +13,6 @@ setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt INC_APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
-
-setopt AUTO_CD
-setopt NO_BEEP
 
 ## Completion 
 autoload -Uz compinit
