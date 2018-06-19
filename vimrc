@@ -38,5 +38,8 @@ colorscheme molokai
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/nerdtree'  
+Plug 'leafgarland/typescript-vim'
+
 call plug#end()
 
