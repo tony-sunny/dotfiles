@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 command -v curl >/dev/null 2>&1 || { echo >&2 "Please install curl before continuing"; exit 1; }
+command -v zsh >/dev/null 2>&1 || { echo >&2 "Please install zsh before continuing"; exit 1; }
 command -v git >/dev/null 2>&1 || { echo >&2 "Please install git before continuing"; exit 1; }
 command -v vim >/dev/null 2>&1 || { echo >&2 "Please install vim before continuing"; exit 1; }
 
