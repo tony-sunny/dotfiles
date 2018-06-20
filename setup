@@ -17,7 +17,7 @@ git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
 sudo mv zsh-syntax-highlighting/ /usr/local/share/
 sudo mv zsh-users/zsh-autosuggestions/ /usr/local/share/
 
-echo "Setting ip vim"
+echo "Setting up vim"
 curl --fail --create-dirs --output ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 curl --fail --create-dirs --output ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cp vimrc ~/.vimrc
