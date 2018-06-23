@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+echo "Checking configuration..."
+PLATFORM="$(uname -s)"
 command -v curl >/dev/null 2>&1 || { echo >&2 "Please install curl before continuing"; exit 1; }
 command -v zsh >/dev/null 2>&1 || { echo >&2 "Please install zsh before continuing"; exit 1; }
 command -v git >/dev/null 2>&1 || { echo >&2 "Please install git before continuing"; exit 1; }
 command -v vim >/dev/null 2>&1 || { echo >&2 "Please install vim before continuing"; exit 1; }
+if [ "$PLATFORM" == "Darwin" ]; then
+  command -v brew >/dev/null 2>&1 || { echo >&2 "PLease install brew before continuing"; exit 1; }
+fi
 
 echo "Copying mpv config files"
 cp mpv/input.conf ~/.config/input.conf
@@ -11,12 +16,16 @@ cp mpv/mpv.conf ~/.config/mpv.conf
 
 echo "Setting up zsh"
 curl --fail --output ~/.zshrc https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-cp zshrc.local ~/.zshrc.local
 cp shell_aliases ~/.shell_aliases
-git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"
-git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
-sudo mv zsh-syntax-highlighting/ /usr/local/share/
-sudo mv zsh-users/zsh-autosuggestions/ /usr/local/share/
+cp zshrc.local ~/.zshrc.local
+if [ "$PLATFORM" == "Dawin" ]; then
+  brew install zsh-autosuggestions zsh-syntax-highlighting
+else
+  git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+  git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
+  sudo mv zsh-syntax-highlighting/ /usr/local/share/
+  sudo mv zsh-users/zsh-autosuggestions/ /usr/local/share/
+fi
 
 echo "Setting up vim"
 curl --fail --create-dirs --output ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
