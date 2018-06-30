@@ -32,6 +32,16 @@ let mapleader=","
 nmap <Leader><CR> :nohlsearch<cr>
 nmap <Leader>n :NERDTree<cr>
 nmap <Leader>w <C-w><C-w>
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap < <><left>
+inoremap (<CR> (<CR>)<ESC>O
+inoremap {<CR> {<CR>}<ESC>O
+
 " colorscheme
 colorscheme molokai
 
@@ -40,5 +50,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'  
 Plug 'leafgarland/typescript-vim'
+Plug 'ervandew/supertab'
 
 call plug#end()
+
