@@ -41,7 +41,11 @@ bindkey "[A" history-search-backward
 source ~/.shell_aliases
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export GOPATH=$HOME/workspace/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
-
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$HOME/.gem/ruby/2.3.0/bin
+export PATH=$PATH:$HOME/workspace/scripts
+export HOMEBREW_NO_AUTO_UPDATE=1
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

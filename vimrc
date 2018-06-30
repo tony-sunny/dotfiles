@@ -11,7 +11,6 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=.git,*.o
 set laststatus=2
-set noshowmode
 set ttimeoutlen=10
 
 " Formatting
@@ -31,7 +30,8 @@ set smartcase
 " Key mappings
 let mapleader=","
 nmap <Leader><CR> :nohlsearch<cr>
-
+nmap <Leader>n :NERDTree<cr>
+nmap <Leader>w <C-w><C-w>
 " colorscheme
 colorscheme molokai
 
@@ -42,4 +42,3 @@ Plug 'scrooloose/nerdtree'
 Plug 'leafgarland/typescript-vim'
 
 call plug#end()
-
