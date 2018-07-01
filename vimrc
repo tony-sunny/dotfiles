@@ -4,7 +4,6 @@ set title
 set number
 set autoindent
 set ruler
-set showcmd
 set scrolloff=5
 set mouse=a
 set wildmenu
@@ -12,6 +11,7 @@ set wildmode=list:longest
 set wildignore=.git,*.o
 set ttimeoutlen=10
 set backspace=2
+set lazyredraw
 
 " Formatting
 set nowrap
