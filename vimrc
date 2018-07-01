@@ -11,6 +11,7 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=.git,*.o
 set ttimeoutlen=10
+set backspace=2
 
 " Formatting
 set nowrap

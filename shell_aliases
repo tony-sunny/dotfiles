@@ -3,6 +3,7 @@ alias la='ls -AGlh'
 alias y2mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 alias ip-local='python -c "import socket; print(socket.gethostbyname(socket.gethostname()))"'
 alias ip-public='dig +short myip.opendns.com @resolver1.opendns.com'
+alias path='echo $PATH | tr -s ":" "\n"'
 
 # Git
 alias gti='git'
