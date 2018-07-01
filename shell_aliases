@@ -5,10 +5,16 @@ alias ip-local='python -c "import socket; print(socket.gethostbyname(socket.geth
 alias ip-public='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Git
+alias gti='git'
 alias gits='git status'
 alias gitb='git branch'
 alias gitl='git log'
 alias gitg='git gui'
 
 # Apps
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+command -v subl || alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+# brew
+alias update='brew update --verbose && brew upgrade'
+alias install='brew install'
+alias search='brew search'

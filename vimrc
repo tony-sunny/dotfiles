@@ -10,7 +10,6 @@ set mouse=a
 set wildmenu
 set wildmode=list:longest
 set wildignore=.git,*.o
-set laststatus=2
 set ttimeoutlen=10
 
 " Formatting
