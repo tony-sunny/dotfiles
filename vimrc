@@ -3,35 +3,28 @@ filetype plugin indent on
 set title
 set number
 set autoindent
-set ruler
 set scrolloff=5
 set mouse=a
-set wildmenu
-set wildmode=list:longest
-set wildignore=.git,*.o
 set ttimeoutlen=10
 set backspace=2
 set lazyredraw
-
-" Formatting
+set autoread
 set nowrap
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
+set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 set smarttab
-
-" Search options
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set wildmenu wildmode=list:longest wildignore=.git
 
 " Key mappings
 let mapleader=","
-nmap <Leader><CR> :nohlsearch<cr>
-nmap <Leader>n :NERDTree<cr>
-nmap <Leader>w <C-w><C-w>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+nmap <leader><cr> :nohlsearch<cr>
+nmap <leader>n :NERDTree<cr>
+nmap <leader>w <c-w><c-w>
 
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -39,11 +32,11 @@ inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 inoremap < <><left>
-inoremap (<CR> (<CR>)<ESC>O
-inoremap {<CR> {<CR>}<ESC>O
+inoremap (<cr> (<cr>)<esc>O
+inoremap {<cr> {<cr>}<esc>O
 
 " colorscheme
-colorscheme molokai
+colorscheme badwolf
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
@@ -51,6 +44,5 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'  
 Plug 'leafgarland/typescript-vim'
 Plug 'ervandew/supertab'
-
 call plug#end()
 

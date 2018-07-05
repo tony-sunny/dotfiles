@@ -16,6 +16,6 @@ alias gitg='git gui'
 command -v subl || alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # brew
-alias update='brew update --verbose && brew upgrade'
+alias update='brew update --verbose && brew upgrade && brew cask upgrade && brew cleanup && brew cask cleanup'
 alias install='brew install'
 alias search='brew search'
