@@ -5,7 +5,6 @@ set number
 set autoindent
 set scrolloff=5
 set mouse=a
-set ttimeoutlen=10
 set backspace=2
 set lazyredraw
 set autoread
@@ -40,7 +39,6 @@ colorscheme badwolf
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
-
 Plug 'scrooloose/nerdtree'  
 Plug 'leafgarland/typescript-vim'
 Plug 'ervandew/supertab'
