@@ -1,0 +1,16 @@
+{
+  "editor.accessibilitySupport": "off",
+  "editor.fontSize": 14,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.tabSize": 2,
+  "extensions.ignoreRecommendations": true,
+  "extensions.showRecommendationsOnlyOnDemand": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "search.smartCase": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "update.enableWindowsBackgroundUpdates": false,
+  "window.openFoldersInNewWindow": "on",
+  "window.restoreFullscreen": true
+}
