@@ -13,6 +13,12 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt INC_APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
 
+## Quote urls automatically when pasted to avoid globbing
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+
 ## Completion 
 autoload -Uz compinit
 compinit
@@ -41,9 +47,6 @@ source ~/.shell_aliases
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export GOPATH=$HOME/workspace/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$HOME/.gem/ruby/2.3.0/bin
 export PATH=$PATH:$HOME/workspace/scripts
 export HOMEBREW_NO_AUTO_UPDATE=1
 export NVM_DIR="$HOME/.nvm"
