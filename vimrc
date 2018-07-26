@@ -2,20 +2,24 @@ syntax enable
 filetype plugin indent on
 set title
 set number
+set nowrap
 set autoindent
-set scrolloff=5
-set mouse=a
-set backspace=2
 set lazyredraw
 set autoread
-set nowrap
-set expandtab tabstop=2 softtabstop=2 shiftwidth=2
-set smarttab
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
+set scrolloff=5
+set mouse=n
+set backspace=2
+set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+set incsearch hlsearch ignorecase smartcase
 set wildmenu wildmode=list:longest wildignore=.git
+
+" statusline
+set laststatus=2
+set statusline=%f
+set statusline+=%=
+set statusline+=%l
+set statusline+=/
+set statusline+=%L
 
 " Key mappings
 let mapleader=","
@@ -25,17 +29,12 @@ nmap <leader><cr> :nohlsearch<cr>
 nmap <leader>n :NERDTree<cr>
 nmap <leader>w <c-w><c-w>
 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap < <><left>
 inoremap (<cr> (<cr>)<esc>O
 inoremap {<cr> {<cr>}<esc>O
 
 " colorscheme
 colorscheme badwolf
+
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
