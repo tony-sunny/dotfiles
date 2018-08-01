@@ -27,14 +27,15 @@ compinit
 autoload -Uz promptinit
 promptinit
 prompt grml
-zstyle ':prompt:grml:left:setup' items newline rc user at host path percent vcs
-zstyle ':prompt:grml:left:items:time' pre '  '
-zstyle ':prompt:grml:left:items:user' pre '%B%F{green}'
+zstyle ':prompt:grml:left:setup' items newline rc user at host path vcs percent
+zstyle ':prompt:grml:left:items:user' pre '%B%F{red}'
 zstyle ':prompt:grml:left:items:user' post '%b%f'
-zstyle ':prompt:grml:left:items:at' pre '%B%F{red}'
+zstyle ':prompt:grml:left:items:at' pre '%B%F{white}'
 zstyle ':prompt:grml:left:items:at' post '%b%f'
-zstyle ':prompt:grml:left:items:host' pre '%B%F{blue}'
+zstyle ':prompt:grml:left:items:host' pre '%B%F{cyan}'
 zstyle ':prompt:grml:left:items:host' post '%b%f'
+zstyle ':prompt:grml:left:items:path' pre '< %B%F{yellow}'
+zstyle ':prompt:grml:left:items:path' post '%b%f> '
 
 ## bindkeys
 bindkey "^R" history-incremental-pattern-search-backward
@@ -46,7 +47,6 @@ bindkey "[A" history-search-backward
 source ~/.shell_aliases
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export PATH=$PATH:$HOME/workspace/scripts
 export HOMEBREW_NO_AUTO_UPDATE=1
 export NVM_DIR="$HOME/.nvm"
