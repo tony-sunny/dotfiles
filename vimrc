@@ -15,16 +15,10 @@ set wildmenu wildmode=list:longest wildignore=.git
 
 " statusline
 set laststatus=2
-set statusline=%f
-set statusline+=%=
-set statusline+=%l
-set statusline+=/
-set statusline+=%L
+set statusline=%f%=%l/%L
 
 " Key mappings
 let mapleader=","
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
 nmap <leader><cr> :nohlsearch<cr>
 nmap <leader>n :NERDTree<cr>
 nmap <leader>w <c-w><c-w>
@@ -35,11 +29,10 @@ inoremap {<cr> {<cr>}<esc>O
 " colorscheme
 colorscheme badwolf
 
-
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'  
-Plug 'leafgarland/typescript-vim'
-Plug 'ervandew/supertab'
+  Plug 'scrooloose/nerdtree'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'ervandew/supertab'
 call plug#end()
 
