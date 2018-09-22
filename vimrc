@@ -34,5 +34,5 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'leafgarland/typescript-vim'
   Plug 'ervandew/supertab'
+  Plug 'noahfrederick/vim-skeleton'
 call plug#end()
-

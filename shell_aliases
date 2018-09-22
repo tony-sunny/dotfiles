@@ -1,18 +1,25 @@
+# vim: syntax=sh
+
 alias ll='ls -Glh'
 alias la='ls -AGlh'
+
 alias y2mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
-alias ip-local='python -c "import socket; print(socket.gethostbyname(socket.gethostname()))"'
+
 alias ip-public='dig +short myip.opendns.com @resolver1.opendns.com'
+
 alias path='echo $PATH | tr -s ":" "\n"'
 
+alias edit='/Applications/BBEdit.app/Contents/MacOS/BBedit'
+
 # Git
+alias gg='git gui'
 alias gti='git'
 alias gits='git status'
 alias gitb='git branch'
 alias gitl='git log'
-alias gitg='git gui'
 
 # brew
-alias update='brew update --verbose && brew upgrade && brew cask upgrade && brew cleanup && brew cask cleanup'
-alias install='brew install'
-alias search='brew search'
+alias update='brew update --verbose && brew upgrade && brew cask upgrade && brew cleanup'
+
+# Functions
+function mkcd() { mkdir -p $1 && cd $1 }
