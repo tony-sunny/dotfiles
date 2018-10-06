@@ -1,6 +1,6 @@
 # Instructions
 
-- Install git, curl, vim ( all 3 required) and mpv.
+- Install git, curl, vim.
 - Clone the repositoty.
 - Execute setup script.
 

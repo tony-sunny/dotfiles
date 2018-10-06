@@ -9,8 +9,6 @@ alias ip-public='dig +short myip.opendns.com @resolver1.opendns.com'
 
 alias path='echo $PATH | tr -s ":" "\n"'
 
-alias edit='/Applications/BBEdit.app/Contents/MacOS/BBedit'
-
 # Git
 alias gg='git gui'
 alias gti='git'
@@ -22,4 +20,8 @@ alias gitl='git log'
 alias update='brew update --verbose && brew upgrade && brew cask upgrade && brew cleanup'
 
 # Functions
-function mkcd() { mkdir -p $1 && cd $1 }
+function gif() {
+  ffmpeg -i $1 -vf "fps=15,scale=320:-1:flags=lanczos,palettegen" -y palette.png
+  ffmpeg -i $1 -i palette.png -filter_complex "fps=15,scale=320:-1:flags=lanczos [x]; [x][1:v] paletteuse" $2
+  rm palette.png
+}

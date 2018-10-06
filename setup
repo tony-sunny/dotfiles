@@ -10,10 +10,6 @@ if [ "$PLATFORM" == "Darwin" ]; then
   command -v brew >/dev/null 2>&1 || { echo >&2 "PLease install brew before continuing"; exit 1; }
 fi
 
-echo "Copying mpv config files"
-cp mpv/input.conf ~/.config/input.conf
-cp mpv/mpv.conf ~/.config/mpv.conf
-
 echo "Setting up zsh"
 curl --fail --location --output ~/.zshrc "https://git.grml.org/?p=grml-etc-core.git;a=blob_plain;f=etc/zsh/zshrc;hb=HEAD"
 cp shell_aliases ~/.shell_aliases
@@ -33,5 +29,3 @@ curl --fail --create-dirs --output ~/.vim/colors/badwolf.vim "https://raw.github
 curl --fail --create-dirs --output ~/.vim/autoload/plug.vim "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 cp vimrc ~/.vimrc
 vim  +PlugInstall +qall > /dev/null 2>&1
-
-command -v mpv >/dev/null 2>&1 || echo "Recommended: Install mpv to make use of mpv config files"

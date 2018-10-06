@@ -30,7 +30,7 @@ prompt grml
 zstyle ':prompt:grml:left:setup' items newline rc user at host path vcs percent
 zstyle ':prompt:grml:left:items:user' pre '%B%F{green}'
 zstyle ':prompt:grml:left:items:user' post '%b%f'
-zstyle ':prompt:grml:left:items:at' pre '%B%F{white}'
+zstyle ':prompt:grml:left:items:at' pre '%B%F{red}'
 zstyle ':prompt:grml:left:items:at' post '%b%f'
 zstyle ':prompt:grml:left:items:host' pre '%B%F{cyan}'
 zstyle ':prompt:grml:left:items:host' post '%b%f'
