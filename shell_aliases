@@ -2,6 +2,7 @@
 
 alias ll='ls -Glh'
 alias la='ls -AGlh'
+alias lt='tree -CFh -L 1'
 
 alias y2mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 
@@ -20,6 +21,8 @@ alias gitl='git log'
 alias update='brew update --verbose && brew upgrade && brew cask upgrade && brew cleanup'
 
 # Functions
+
+# Make gif from video -> gif imput.mp4 output.gif 
 function gif() {
   ffmpeg -i $1 -vf "fps=15,scale=320:-1:flags=lanczos,palettegen" -y palette.png
   ffmpeg -i $1 -i palette.png -filter_complex "fps=15,scale=320:-1:flags=lanczos [x]; [x][1:v] paletteuse" $2

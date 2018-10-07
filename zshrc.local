@@ -43,9 +43,10 @@ bindkey "[A" history-search-backward
 
 ## Souce files and env
 export GOPATH=$HOME/workspace/go
-export PATH=$PATH:$HOME/workspace/scripts:/usr/local/opt/go/libexec/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/workspace/scripts:$GOPATH/bin
 export HOMEBREW_NO_AUTO_UPDATE=1
 export NVM_DIR=$HOME/.nvm
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 [ -f $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

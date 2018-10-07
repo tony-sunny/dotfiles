@@ -20,7 +20,7 @@ set statusline=%f%=%l/%L
 " Key mappings
 let mapleader=","
 nmap <leader><cr> :nohlsearch<cr>
-nmap <leader>n :NERDTree<cr>
+nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>w <c-w><c-w>
 
 inoremap (<cr> (<cr>)<esc>O
