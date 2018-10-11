@@ -6,7 +6,7 @@ alias lt='tree -CFh -L 1'
 
 alias y2mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 
-alias ip-public='dig +short myip.opendns.com @resolver1.opendns.com'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 alias path='echo $PATH | tr -s ":" "\n"'
 
@@ -17,10 +17,14 @@ alias gits='git status'
 alias gitb='git branch'
 alias gitl='git log'
 
-# brew
+# Open config files
+alias zshrc='vim ~/.zshrc.local'
+alias vimrc='vim ~/.vimrc'
+
+# Brew
 alias update='brew update --verbose && brew upgrade && brew cask upgrade && brew cleanup'
 
-# Functions
+## Functions
 
 # Make gif from video -> gif imput.mp4 output.gif 
 function gif() {
