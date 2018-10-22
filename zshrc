@@ -1,17 +1,16 @@
 ### OPTIONS
 
-setopt AUTO_CD
-setopt NO_BEEP
+setopt auto_cd
+setopt no_beep
+setopt prompt_subst
+setopt append_history
+setopt hist_ignore_all_dups
+setopt inc_append_history
+setopt hist_find_no_dups
 unsetopt prompt_cr prompt_sp
-
-## Command History
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTSIZE=10000
+export SAVEHIST=10000
 export HISTIGNORE="ls::exit:clear:cd:cd .."
-setopt APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt INC_APPEND_HISTORY
-setopt HIST_FIND_NO_DUPS
 
 ## Quote urls automatically when pasted to avoid globbing
 autoload -Uz bracketed-paste-magic
@@ -22,25 +21,20 @@ zle -N self-insert url-quote-magic
 ## Completion 
 autoload -Uz compinit
 compinit
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 ## Prompt
-autoload -Uz promptinit
-promptinit
-prompt grml
+autoload -U colors && colors
+autoload -Uz vcs_info
+precmd() { vcs_info }
 
-zstyle ':prompt:grml:left:setup' items newline rc user at host path vcs percent
-zstyle ':prompt:grml:left:items:user' pre '%B%F{green}'
-zstyle ':prompt:grml:left:items:user' post '%b%f'
-zstyle ':prompt:grml:left:items:at' pre '%B%F{red}'
-zstyle ':prompt:grml:left:items:at' post '%b%f'
-zstyle ':prompt:grml:left:items:host' pre '%B%F{cyan}'
-zstyle ':prompt:grml:left:items:host' post '%b%f'
-zstyle ':prompt:grml:left:items:path' pre '%B%F{yellow}'
-zstyle ':prompt:grml:left:items:path' post '%b%f'
+PROMPT_STATUS="%(?..%{$fg[red]%}[%?] )"
+PROMPT_USER="%{$fg[green]%}[%n%{$fg[red]%}@%{$fg[cyan]%}%m]"
+PROMPT_PWD="%{$fg[yellow]%}%2~"
+PROMPT_RESET="%{$reset_color%}"
 
-## bindkeys
-bindkey "[B" history-search-forward
-bindkey "[A" history-search-backward
+PROMPT=$'\n${PROMPT_STATUS}${PROMPT_USER} ${PROMPT_PWD}%{$fg[green]%}${vcs_info_msg_0_}${PROMPT_RESET} %# '
 
 ## Souce files and env
 export GOPATH=$HOME/workspace/go
@@ -53,4 +47,4 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.shell_aliases ] && source ~/.shell_aliases
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 

@@ -18,7 +18,7 @@ alias gitb='git branch'
 alias gitl='git log'
 
 # Open config files
-alias zshrc='vim ~/.zshrc.local'
+alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 
 # Brew
