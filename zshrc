@@ -1,22 +1,14 @@
 ### OPTIONS
 
-setopt auto_cd
-setopt no_beep
 setopt prompt_subst
 setopt append_history
 setopt hist_ignore_all_dups
 setopt inc_append_history
-setopt hist_find_no_dups
 unsetopt prompt_cr prompt_sp
 export HISTSIZE=10000
 export SAVEHIST=10000
+export HISTFILE=~/.zsh_history
 export HISTIGNORE="ls::exit:clear:cd:cd .."
-
-## Quote urls automatically when pasted to avoid globbing
-autoload -Uz bracketed-paste-magic
-zle -N bracketed-paste bracketed-paste-magic
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
 
 ## Completion 
 autoload -Uz compinit
@@ -44,7 +36,6 @@ export NVM_DIR=$HOME/.nvm
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 [ -f $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.shell_aliases ] && source ~/.shell_aliases
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
