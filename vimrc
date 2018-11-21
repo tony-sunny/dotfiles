@@ -15,7 +15,7 @@ set wildmenu wildmode=list:longest wildignore=*/.git/*
 
 " statusline
 set laststatus=2
-set statusline=%f%=%p%%\ %l:%c/%L
+set statusline=%f%=\ %y\ %c/%{strwidth(getline('.'))}\ %l/%L
 
 " Key mappings
 inoremap (<cr> (<cr>)<esc>O
@@ -40,4 +40,5 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'ervandew/supertab'
   Plug 'noahfrederick/vim-skeleton'
+  Plug 'w0rp/ale'
 call plug#end()

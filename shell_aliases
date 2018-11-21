@@ -2,7 +2,9 @@
 
 alias ll='ls -Glh'
 alias la='ls -AGlh'
-alias lt='tree -CFh -L 1'
+alias lt='tree -CFha -L 1'
+
+alias grep='grep --color=auto'
 
 alias y2mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 
@@ -16,13 +18,14 @@ alias gti='git'
 alias gits='git status'
 alias gitb='git branch'
 alias gitl='git log'
+alias gitc='git checkout'
 
 # Open config files
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 
 # Brew
-alias update='brew update --verbose && brew upgrade && brew cask upgrade && brew cleanup'
+alias update='brew update && brew upgrade && brew cask upgrade && brew cleanup'
 
 ## Functions
 
