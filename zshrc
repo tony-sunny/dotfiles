@@ -5,13 +5,9 @@ setopt inc_append_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
-export HISTIGNORE="ls::exit:clear:cd:cd .."
 
 ## Completion 
-autoload -Uz compinit
-compinit
-zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+autoload -Uz compinit && compinit
 
 ## Prompt
 autoload -Uz vcs_info
@@ -19,11 +15,10 @@ zstyle ':vcs_info:git*' formats "%F{yellow}[%b%(a.. %a)]%f "
 precmd() { vcs_info }
 
 PROMPT_STATUS="%(?..%F{red}[%?]%f )"
-PROMPT_USER="%B%F{green}[%n@%m] "
-PROMPT_PWD="%F{cyan}%2~%f%b "
+PROMPT_USER_PWD="%B%F{green}[%n@%m] %F{cyan}%2~%f%b "
 PROMPT_END="%B%F{red}->%f%b "
 
-PROMPT=$'\n${PROMPT_STATUS}${PROMPT_USER}${PROMPT_PWD}${vcs_info_msg_0_}${PROMPT_END}'
+PROMPT=$'\n${PROMPT_STATUS}${PROMPT_USER_PWD}${vcs_info_msg_0_}${PROMPT_END}'
 
 ## Colorize less
 export LESS_TERMCAP_mb=$'\E[1;31m'

@@ -11,9 +11,8 @@ if [ "$PLATFORM" == "Darwin" ]; then
 fi
 
 echo "Setting up zsh"
-curl --fail --location --output ~/.zshrc "https://git.grml.org/?p=grml-etc-core.git;a=blob_plain;f=etc/zsh/zshrc;hb=HEAD"
 cp shell_aliases ~/.shell_aliases
-cp zshrc.local ~/.zshrc.local
+cp zshrc ~/.zshrc
 if [ "$PLATFORM" == "Dawin" ]; then
   brew install zsh-autosuggestions zsh-syntax-highlighting
 else

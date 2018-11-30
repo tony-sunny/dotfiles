@@ -12,6 +12,7 @@ set backspace=2
 set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
 set incsearch hlsearch ignorecase smartcase
 set wildmenu wildmode=list:longest wildignore=*/.git/*
+set noshowmode
 
 " statusline
 set laststatus=2
@@ -39,6 +40,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'leafgarland/typescript-vim'
   Plug 'ervandew/supertab'
-  Plug 'noahfrederick/vim-skeleton'
   Plug 'w0rp/ale'
 call plug#end()
+
+let g:ale_linters = { 
+      \'typescript': ['tslint', 'tsc', 'prettier'], 
+      \'javascript': ['eslint', 'prettier']
+\}
