@@ -33,10 +33,8 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export GOPATH=$HOME/workspace/go
 export PATH=$PATH:$HOME/workspace/scripts:$GOPATH/bin
 export HOMEBREW_NO_AUTO_UPDATE=1
-export NVM_DIR=$HOME/.nvm
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-[ -f $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh
 [ -f ~/.shell_aliases ] && source ~/.shell_aliases
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
