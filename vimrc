@@ -3,6 +3,7 @@ filetype plugin indent on
 set title
 set relativenumber
 set nowrap
+set encoding=utf-8
 set autoindent
 set lazyredraw
 set autoread
@@ -30,6 +31,7 @@ nmap <leader><cr> :nohlsearch<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>r :NERDTreeFind<cr>
 nmap <leader>w <c-w><c-w>
+nmap <leader>t gT
 nmap <leader>q :q<cr>
 
 " colorscheme
