@@ -54,10 +54,10 @@ nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>r :NERDTreeFind<cr>
 nmap <leader>w <c-w><c-w>
 nmap <leader>t gT
-nmap <leader>q :q<cr>
+nmap <leader>q :qa<cr>
 
 " colorscheme
-colorscheme gruvbox 
+colorscheme gruvbox
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
