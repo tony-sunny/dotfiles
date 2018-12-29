@@ -15,6 +15,7 @@ set incsearch hlsearch ignorecase smartcase
 set wildmenu wildmode=list:longest wildignore=*/.git/*
 set noshowmode
 set background=dark
+set ttimeoutlen=50
 
 " statusline
 set laststatus=2
@@ -23,8 +24,8 @@ set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
 set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=\ %n\ 
-set statusline+=%#Visual#
+set statusline+=\ %n
+set statusline+=\ %#Visual#
 set statusline+=%#CursorIM#
 set statusline+=%R
 set statusline+=%M
