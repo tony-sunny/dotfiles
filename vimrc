@@ -14,10 +14,32 @@ set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
 set incsearch hlsearch ignorecase smartcase
 set wildmenu wildmode=list:longest wildignore=*/.git/*
 set noshowmode
+set background=dark
 
 " statusline
 set laststatus=2
-set statusline=%f%=\ %y\ %c/%{strwidth(getline('.'))}\ %l/%L
+set statusline=
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=\ %n\
+set statusline+=%#Visual#
+set statusline+=%{&paste?'\ PASTE\ ':''}
+set statusline+=%{&spell?'\ SPELL\ ':''}
+set statusline+=%#CursorIM#
+set statusline+=%R
+set statusline+=%M
+set statusline+=%#Cursor#
+set statusline+=%#CursorLine#
+set statusline+=\ %t\
+set statusline+=%=
+set statusline+=%#CursorLine#
+set statusline+=\ %Y\
+set statusline+=%#CursorIM#
+set statusline+=\ %3l:%-2c\
+set statusline+=%#Cursor#
+set statusline+=\ %3p%%\
 
 " Key mappings
 inoremap (<cr> (<cr>)<esc>O
@@ -35,7 +57,7 @@ nmap <leader>t gT
 nmap <leader>q :q<cr>
 
 " colorscheme
-colorscheme badwolf 
+colorscheme gruvbox 
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
