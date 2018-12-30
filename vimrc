@@ -16,6 +16,7 @@ set wildmenu wildmode=list:longest wildignore=*/.git/*
 set noshowmode
 set background=dark
 set ttimeoutlen=50
+set splitbelow splitright
 
 " statusline
 set laststatus=2
@@ -35,7 +36,7 @@ set statusline+=\ %t
 set statusline+=%=
 set statusline+=%#CursorLine#
 set statusline+=\ %Y
-set statusline+=%#CursorIM#
+set statusline+=\ %#CursorIM#
 set statusline+=\ %3l:%-2c
 set statusline+=%#Cursor#
 set statusline+=\ %3p%%
