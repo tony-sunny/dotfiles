@@ -1,7 +1,7 @@
 syntax enable
 filetype plugin indent on
 set title
-set relativenumber
+set number relativenumber
 set nowrap
 set encoding=utf-8
 set autoindent
@@ -39,7 +39,7 @@ set statusline+=\ %Y
 set statusline+=\ %#CursorIM#
 set statusline+=\ %3l:%-2c
 set statusline+=%#Cursor#
-set statusline+=\ %3p%%
+set statusline+=\ %3p%%\ 
 
 " Key mappings
 inoremap (<cr> (<cr>)<esc>O
