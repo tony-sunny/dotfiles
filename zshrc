@@ -36,5 +36,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 [ -f ~/.shell_aliases ] && source ~/.shell_aliases
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -1,3 +1,5 @@
+let s:darwin = has('mac')
+
 syntax enable
 filetype plugin indent on
 set title
@@ -49,15 +51,20 @@ cnoremap help vert help
 cabbrev h vert h
 
 let mapleader=","
+nmap <leader>q :qa<cr>
+nmap <leader>w <c-w><c-w>
 nmap <leader><cr> :nohlsearch<cr>
+
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>r :NERDTreeFind<cr>
-nmap <leader>w <c-w><c-w>
-nmap <leader>t gT
-nmap <leader>q :qa<cr>
+
+nmap <leader>f :GFiles<cr>
+nmap <leader>F :Files<cr>
+nmap <leader>b :Buffers<cr>
 
 " colorscheme
-colorscheme gruvbox
+let g:seoul256_background = 233
+colorscheme seoul256
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
@@ -65,6 +72,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'ervandew/supertab'
   Plug 'w0rp/ale'
+  if s:darwin
+    Plug '/usr/local/opt/fzf'
+  else
+    Plug '~/.fzf'
+  endif
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:ale_linters = { 
