@@ -64,7 +64,10 @@ nmap <leader>b :Buffers<cr>
 
 " colorscheme
 let g:seoul256_background = 233
-colorscheme seoul256
+" colorscheme seoul256
+" colorscheme molokai
+colorscheme gruvbox
+" colorscheme badwolf
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
