@@ -25,9 +25,8 @@ alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 
 # Brew
+alias b='brew'
 alias update='brew update && brew upgrade && brew cask upgrade && brew cleanup'
-
-## Functions
 
 # Make gif from video -> gif imput.mp4 output.gif 
 function gif() {

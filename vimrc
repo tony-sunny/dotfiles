@@ -24,9 +24,9 @@ set splitbelow splitright
 set laststatus=2
 set statusline=
 set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#Cursor#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 set statusline+=\ %n
 set statusline+=\ %#Visual#
 set statusline+=%#CursorIM#
@@ -50,6 +50,12 @@ inoremap {<cr> {<cr>}<esc>O
 cnoremap help vert help
 cabbrev h vert h
 
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+
+nnoremap yy "*yy"
+vnoremap y "*y"
+
 let mapleader=","
 nmap <leader>q :qa<cr>
 nmap <leader>w <c-w><c-w>
@@ -63,7 +69,7 @@ nmap <leader>F :Files<cr>
 nmap <leader>b :Buffers<cr>
 
 " colorscheme
-let g:seoul256_background = 233
+" let g:seoul256_background = 233
 " colorscheme seoul256
 " colorscheme molokai
 colorscheme gruvbox

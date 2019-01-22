@@ -34,6 +34,7 @@ export GOPATH=$HOME/workspace/go
 export PATH=$PATH:$HOME/workspace/scripts:$GOPATH/bin
 export HOMEBREW_NO_AUTO_UPDATE=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export NNN_CONTEXT_COLORS="6521"
 
 [ -f ~/.shell_aliases ] && source ~/.shell_aliases
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

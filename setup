@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "Checking configuration...\\n"
+echo -e "Checking configuration...\n"
 PLATFORM="$(uname -s)"
 command -v curl >/dev/null 2>&1 || { echo >&2 "Please install curl before continuing"; exit 1; }
 command -v zsh >/dev/null 2>&1 || { echo >&2 "Please install zsh before continuing"; exit 1; }
@@ -10,7 +10,7 @@ if [ "$PLATFORM" == "Darwin" ]; then
   command -v brew >/dev/null 2>&1 || { echo >&2 "PLease install brew before continuing"; exit 1; }
 fi
 
-echo -e "Setting up zsh...\\n"
+echo -e "Setting up zsh...\n"
 cp shell_aliases ~/.shell_aliases
 cp zshrc ~/.zshrc
 if [ "$PLATFORM" == "Dawin" ]; then
@@ -22,7 +22,7 @@ else
   sudo mv zsh-users/zsh-autosuggestions/ /usr/local/share/
 fi
 
-echo -e "Setting up fzf...\\n"
+echo -e "Setting up fzf...\n"
 if [ "$PLATFORM" == "Darwin" ]; then
   brew install fzf && /usr/local/opt/fzf/install
 else
@@ -30,7 +30,7 @@ else
   ~/.fzf/install
 fi
 
-echo -e "Setting up vim...\\n"
+echo -e "Setting up vim...\n"
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/colors
 cp -R vim/. ~/.vim/
