@@ -1,5 +1,3 @@
-let s:darwin = has('mac')
-
 syntax enable
 filetype plugin indent on
 set title
