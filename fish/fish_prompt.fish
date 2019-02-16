@@ -32,7 +32,7 @@ function fish_prompt --description 'Write out the prompt'
   end
  
   # New Line
-  echo -en "\n"
+  echo  ""
 
   # User Info
   printf '%s[%s@%s]%s ' (set_color yellow) (whoami) (prompt_hostname) (set_color normal)

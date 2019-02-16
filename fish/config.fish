@@ -2,6 +2,7 @@ set fish_greeting
 set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
 set -x EDITOR vim
 set -x HOMEBREW_NO_AUTO_UPDATE 1
+set -x HOMEBREW_NO_INSTALL_CLEANUP 1
 set -x NNN_CONTEXT_COLORS '6521'
 
 # Aliases

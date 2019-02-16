@@ -1,5 +1,3 @@
-let s:darwin = has('mac')
-
 syntax enable
 filetype plugin indent on
 set title
@@ -19,29 +17,7 @@ set noshowmode
 set background=dark
 set ttimeoutlen=50
 set splitbelow splitright
-
-" statusline
 set laststatus=2
-set statusline=
-set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#Cursor#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=\ %n
-set statusline+=\ %#Visual#
-set statusline+=%#CursorIM#
-set statusline+=%R
-set statusline+=%M
-set statusline+=%#Cursor#
-set statusline+=%#CursorLine#
-set statusline+=\ %t
-set statusline+=%=
-set statusline+=%#CursorLine#
-set statusline+=\ %Y
-set statusline+=\ %#CursorIM#
-set statusline+=\ %3l:%-2c
-set statusline+=%#Cursor#
-set statusline+=\ %3p%%\ 
 
 " Key mappings
 inoremap (<cr> (<cr>)<esc>O
@@ -52,6 +28,10 @@ cabbrev h vert h
 
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
 
 nnoremap yy "*yy"
 vnoremap y "*y"
@@ -68,12 +48,13 @@ nmap <leader>f :GFiles<cr>
 nmap <leader>F :Files<cr>
 nmap <leader>b :Buffers<cr>
 
+nmap <leader>g :Goyo<cr>
+
 " colorscheme
-" let g:seoul256_background = 233
-" colorscheme seoul256
-" colorscheme molokai
-colorscheme gruvbox
-" colorscheme badwolf
+" Pick a random colorscheme
+let themes = ['molokai', 'seoul256', 'gruvbox', 'badwolf', 'jellybeans']
+execute 'colorscheme '.themes[localtime() % len(themes)]
+unlet themes
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
@@ -81,12 +62,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'ervandew/supertab'
   Plug 'w0rp/ale'
-  if s:darwin
-    Plug '/usr/local/opt/fzf'
-  else
-    Plug '~/.fzf'
-  endif
+  Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'itchyny/lightline.vim'
 call plug#end()
 
 let g:ale_linters = { 
