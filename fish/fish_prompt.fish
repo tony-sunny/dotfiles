@@ -5,7 +5,7 @@ function fish_prompt --description 'Write out the prompt'
   set -g __fish_git_prompt_hide_untrackedfiles 1
   set -g __fish_git_prompt_color_branch magenta --bold
   set -g __fish_git_prompt_showupstream "informative"
- 
+  
   set -g __fish_git_prompt_char_upstream_ahead "↑"
   set -g __fish_git_prompt_char_upstream_behind "↓"
   set -g __fish_git_prompt_char_upstream_prefix ""
@@ -18,41 +18,26 @@ function fish_prompt --description 'Write out the prompt'
   set -g __fish_git_prompt_color_dirtystate blue
   set -g __fish_git_prompt_color_stagedstate yellow
   set -g __fish_git_prompt_color_invalidstate red
-  set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
+  set -g __fish_git_prompt_color_untrackedfiles normal
   set -g __fish_git_prompt_color_cleanstate green --bold
 
-  set -g __fish_prompt_normal (set_color normal)
-
-  set -l suffix
-  switch "$USER"
-      case root toor
-          set suffix '#'
-      case '*'
-          set suffix '➜ '
-  end
- 
-  # New Line
-  echo  ""
-
   # User Info
-  printf '%s[%s@%s]%s ' (set_color yellow) (whoami) (prompt_hostname) (set_color normal)
- 
-
+  printf '\n%s[%s@%s]%s ' (set_color yellow) (whoami) (prompt_hostname) (set_color normal)
+  
   # PWD
   set_color green
   echo -n (prompt_pwd)
   set_color normal
 
-  printf '%s ' (__fish_vcs_prompt)
-  echo ""
+  echo (__fish_vcs_prompt)
 
   if not test $last_status -eq 0
-      set_color $fish_color_error
+      set_color red
       echo -n "[$last_status] "
       set_color normal
   end
-
+  
   set_color purple
-  echo -n "$suffix "
+  echo -n '➜  '
   set_color normal
 end

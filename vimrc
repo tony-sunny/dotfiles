@@ -52,20 +52,21 @@ nmap <leader>g :Goyo<cr>
 
 " colorscheme
 " Pick a random colorscheme
-let themes = ['molokai', 'seoul256', 'gruvbox', 'badwolf', 'jellybeans']
+let themes = ['molokai', 'gruvbox', 'badwolf']
 execute 'colorscheme '.themes[localtime() % len(themes)]
 unlet themes
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
-  Plug 'scrooloose/nerdtree'
-  Plug 'leafgarland/typescript-vim'
+  Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
   Plug 'ervandew/supertab'
   Plug 'w0rp/ale'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'itchyny/lightline.vim'
+  Plug 'dag/vim-fish'
 call plug#end()
 
 let g:ale_linters = { 
