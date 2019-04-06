@@ -3,9 +3,12 @@ set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
 set -x EDITOR vim
 set -x HOMEBREW_NO_AUTO_UPDATE 1
 set -x HOMEBREW_NO_INSTALL_CLEANUP 1
-set -x NNN_CONTEXT_COLORS '6521'
 set -x FZF_DEFAULT_OPTS '--layout=reverse --height 50%'
 set -g fish_user_paths $fish_user_paths /Users/tony/workspace/scripts
+
+function fish_mode_prompt; end
+
+fish_vi_key_bindings
 
 if set -q fish_initialized
   set -U fish_initialized
@@ -24,7 +27,6 @@ if set -q fish_initialized
   abbr path 'echo $PATH | tr -s ":" "\n"'
   abbr update 'brew update && brew upgrade && brew cleanup'
 
-  abbr zshrc 'vim ~/.zshrc'
   abbr vimrc 'vim ~/.vimrc'
   abbr fishrc 'vim ~/.config/fish/config.fish'
 end
@@ -36,6 +38,7 @@ function gif
   rm palette.png
 end
 
+# File picker using fzf and opens in $EDITOR (e /path/)
 function e
   find $argv | fzf | parallel -X --tty $EDITOR
 end

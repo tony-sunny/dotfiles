@@ -21,7 +21,6 @@ alias gitl='git log'
 alias gitc='git checkout'
 
 # Open config files
-alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias fishrc='vim ~/.config/fish/config.fish'
 
