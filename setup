@@ -3,23 +3,10 @@
 echo -e "Checking configuration...\n"
 PLATFORM="$(uname -s)"
 command -v curl >/dev/null 2>&1 || { echo >&2 "Please install curl before continuing"; exit 1; }
-command -v zsh >/dev/null 2>&1 || { echo >&2 "Please install zsh before continuing"; exit 1; }
 command -v git >/dev/null 2>&1 || { echo >&2 "Please install git before continuing"; exit 1; }
 command -v vim >/dev/null 2>&1 || { echo >&2 "Please install vim before continuing"; exit 1; }
 if [ "$PLATFORM" == "Darwin" ]; then
   command -v brew >/dev/null 2>&1 || { echo >&2 "PLease install brew before continuing"; exit 1; }
-fi
-
-echo -e "Setting up zsh...\n"
-cp shell_aliases ~/.shell_aliases
-cp zshrc ~/.zshrc
-if [ "$PLATFORM" == "Dawin" ]; then
-  brew install zsh-autosuggestions zsh-syntax-highlighting
-else
-  git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"
-  git clone "https://github.com/zsh-users/zsh-autosuggestions.git"
-  sudo mv zsh-syntax-highlighting/ /usr/local/share/
-  sudo mv zsh-users/zsh-autosuggestions/ /usr/local/share/
 fi
 
 echo -e "Setting up fzf...\n"
