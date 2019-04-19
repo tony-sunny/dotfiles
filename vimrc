@@ -1,5 +1,3 @@
-syntax enable
-filetype plugin indent on
 set list
 set title
 set nowrap
@@ -12,8 +10,8 @@ set noshowmode
 set scrolloff=5
 set backspace=2
 set laststatus=2
-set updatetime=300
 set ttimeoutlen=50
+set updatetime=300
 set encoding=utf-8
 set background=dark
 set listchars=trail:•
@@ -40,23 +38,6 @@ inoremap ˚ <Esc>:m .-2<CR>==gi
 nnoremap yy "*yy"
 vnoremap y "*y"
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 let mapleader=","
 nmap <leader>q :qa<cr>
 nmap <leader>w <c-w><c-w>
@@ -65,17 +46,15 @@ nmap <leader><cr> :nohlsearch<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>r :NERDTreeFind<cr>
 
-nmap <leader>f :GFiles<cr>  
+nmap <leader>f :GFiles<cr>
 nmap <leader>F :Files<cr>
 nmap <leader>b :Buffers<cr>
-
-let g:gruvbox_contrast_dark='dark'
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+  Plug 'w0rp/ale'
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'itchyny/lightline.vim'
@@ -84,3 +63,8 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 colorscheme gruvbox
+
+let g:ale_linters = {
+      \'typescript': ['tslint', 'tsc', 'prettier'],
+      \'javascript': ['eslint', 'prettier']
+\}
