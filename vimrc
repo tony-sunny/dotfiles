@@ -1,22 +1,16 @@
-set list
 set title
 set nowrap
-set hidden
-set mouse=n
+set nu rnu
+set sb spr
 set autoread
 set autoindent
-set lazyredraw
 set noshowmode
 set scrolloff=5
 set backspace=2
 set laststatus=2
-set ttimeoutlen=50
-set updatetime=300
 set encoding=utf-8
 set background=dark
-set listchars=trail:•
-set number relativenumber
-set splitbelow splitright
+set list listchars=trail:•
 set incsearch hlsearch ignorecase smartcase
 set wildmenu wildmode=list:longest wildignore=*/.git/*
 set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2

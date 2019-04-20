@@ -34,7 +34,8 @@ function gif
 end
 
 # File picker using fzf and opens in vim (e /path/)
+# Not suitable for multiple files
 function e
-  vim -o (find $argv | fzf)
+  vim (find $argv | fzf)
 end
 
