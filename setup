@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
+check_dependency() {
+  command -v "$1" >/dev/null 2>&1 || { echo >&2 "Please install $1 before continuing"; exit 1; }
+}
+
 echo -e "Checking configuration...\n"
 PLATFORM="$(uname -s)"
-command -v curl >/dev/null 2>&1 || { echo >&2 "Please install curl before continuing"; exit 1; }
-command -v git >/dev/null 2>&1 || { echo >&2 "Please install git before continuing"; exit 1; }
-command -v vim >/dev/null 2>&1 || { echo >&2 "Please install vim before continuing"; exit 1; }
+check_dependency curl
+check_dependency git
+check_dependency vim
 if [ "$PLATFORM" == "Darwin" ]; then
-  command -v brew >/dev/null 2>&1 || { echo >&2 "PLease install brew before continuing"; exit 1; }
+  check_dependency brew
 fi
 
 echo -e "Setting up fzf...\n"
@@ -17,9 +21,13 @@ else
   ~/.fzf/install
 fi
 
+ echo -e "Setting up fish...\n"
+ mkdir -p ~/.config/fish/functions
+ cp fish/config.fish ~/.config/fish/config.fish
+ cp fish/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+
 echo -e "Setting up vim...\n"
 mkdir -p ~/.vim/autoload
-mkdir -p ~/.vim/colors
 cp -R vim/. ~/.vim/
 cp vimrc ~/.vimrc
 vim  +PlugInstall +qall > /dev/null 2>&1
