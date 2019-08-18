@@ -1,30 +1,41 @@
-set fish_greeting
-set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
 set -x EDITOR vim
-set -x HOMEBREW_NO_AUTO_UPDATE 1
-set -x HOMEBREW_NO_INSTALL_CLEANUP 1
+set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
+set -x LESSHISTFILE -
 set -x FZF_DEFAULT_OPTS '--layout=reverse --height 50%'
 set -x PATH $PATH /usr/local/sbin
 
-function fish_mode_prompt; end
+set -x HOMEBREW_NO_AUTO_UPDATE 1
+set -x HOMEBREW_NO_INSTALL_CLEANUP 1
+set -x HOMEBREW_NO_ANALYTICS 1
 
-fish_vi_key_bindings
+# Turn off shell greeting
+set fish_greeting
 
-abbr lt 'tree -CFha -L 1'
+# Syntax highlighting
+set fish_color_error red --bold
+set fish_color_command green
 
-abbr gg 'git gui'
 abbr gti 'git'
+abbr gg 'git gui'
 abbr gits 'git status'
 abbr gitb 'git branch'
 abbr gitl 'git log'
 abbr gitc 'git checkout'
+abbr gitclean 'git reset --hard && git clean -fd'
 
-abbr y2mp3 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
+abbr y2mp3 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 -o "~/Downloads/%(title)s.%(ext)s"'
 abbr myip 'dig +short myip.opendns.com @resolver1.opendns.com'
 abbr update 'brew update && brew upgrade && brew cask upgrade && brew cleanup'
 
 abbr vimrc 'vim ~/.vimrc'
 abbr fishrc 'vim ~/.config/fish/config.fish'
+
+abbr node 'env NODE_REPL_HISTORY="" node'
+abbr redis-cli 'env REDISCLI_HISTFILE=/dev/null redis-cli'
+abbr nnn 'nnn -d'
+
+abbr mp3tag 'wine "/Users/tony/.wine/drive_c/Program Files (x86)/Mp3tag/Mp3tag.exe"'
+abbr ace 'wine "/Users/tony/.wine/drive_c/users/tony/Application Data/ACEStream/player/ace_player.exe"'
 
 # Make gif from video -> gif imput.mp4 output.gif
 function gif
