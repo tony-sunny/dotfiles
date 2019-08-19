@@ -4,7 +4,7 @@ check_dependency() {
   command -v "$1" >/dev/null 2>&1 || { echo >&2 "Please install $1 before continuing"; exit 1; }
 }
 
-echo -e "Checking configuration...\n"
+echo "Checking configuration..."
 PLATFORM="$(uname -s)"
 check_dependency curl
 check_dependency git
@@ -13,7 +13,7 @@ if [ "$PLATFORM" == "Darwin" ]; then
   check_dependency brew
 fi
 
-echo -e "Setting up fzf...\n"
+echo "Setting up fzf..."
 if [ "$PLATFORM" == "Darwin" ]; then
   brew install fzf && /usr/local/opt/fzf/install
 else
@@ -21,13 +21,13 @@ else
   ~/.fzf/install
 fi
 
-echo -e "Setting up fish...\n"
+echo "Setting up fish..."
 mkdir -p ~/.config/fish/functions
 cp fish/config.fish ~/.config/fish/config.fish
 cp fish/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 command -v fish >/dev/null 2>&1 || echo >&2 "Please install fish shell to use fish config"
 
-echo -e "Setting up vim...\n"
+echo "Setting up vim..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 cp vimrc ~/.vimrc
