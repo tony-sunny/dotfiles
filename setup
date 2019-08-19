@@ -21,13 +21,14 @@ else
   ~/.fzf/install
 fi
 
- echo -e "Setting up fish...\n"
- mkdir -p ~/.config/fish/functions
- cp fish/config.fish ~/.config/fish/config.fish
- cp fish/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+echo -e "Setting up fish...\n"
+mkdir -p ~/.config/fish/functions
+cp fish/config.fish ~/.config/fish/config.fish
+cp fish/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+command -v fish >/dev/null 2>&1 || echo >&2 "Please install fish shell to use fish config"
 
 echo -e "Setting up vim...\n"
-mkdir -p ~/.vim/autoload
-cp -R vim/. ~/.vim/
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 cp vimrc ~/.vimrc
 vim  +PlugInstall +qall > /dev/null 2>&1
