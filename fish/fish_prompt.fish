@@ -15,7 +15,7 @@ function fish_prompt --description 'Write out the prompt'
   set -g __fish_git_prompt_char_untrackedfiles "…"
   set -g __fish_git_prompt_char_invalidstate "✖"
   set -g __fish_git_prompt_char_cleanstate "✔"
-  set -g __fish_git_prompt_color_dirtystate blue
+  set -g __fish_git_prompt_color_dirtystate magenta
   set -g __fish_git_prompt_color_stagedstate yellow
   set -g __fish_git_prompt_color_invalidstate red
   set -g __fish_git_prompt_color_untrackedfiles normal
