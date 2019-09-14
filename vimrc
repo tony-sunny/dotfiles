@@ -8,8 +8,8 @@ set ttimeoutlen=50
 set updatetime=250
 set number relativenumber
 set splitbelow splitright
-set list listchars=tab:..,trail:★
 set hlsearch incsearch smartcase
+set list listchars=tab:..,trail:★
 set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
 
 " Key mappings
@@ -25,18 +25,17 @@ vnoremap ˚ :m '<-2<cr>gv=gv
 inoremap ∆ <esc>:m .+1<cr>==gi
 inoremap ˚ <esc>:m .-2<cr>==gi
 
-nnoremap yy "*yy"
-vnoremap y "*y"
-
 let mapleader=","
 nmap <leader>q :qa<cr>
 nmap <leader>w <c-w><c-w>
-nmap <leader><leader> :nohlsearch<cr>
+nmap <leader>e :Lexplore<cr>
 nmap <leader>t :below term<cr>
+nmap <leader><leader> :nohlsearch<cr>
 
 nmap <leader>f :GFiles<cr>
 nmap <leader>F :Files<cr>
 nmap <leader>b :Buffers<cr>
+
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -48,3 +47,8 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 colorscheme gruvbox
+
+" Netrw tweaks
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_winsize=20
