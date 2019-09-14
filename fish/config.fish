@@ -1,7 +1,6 @@
 set -x EDITOR vim
-set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
 set -x LESSHISTFILE -
-set -x FZF_DEFAULT_OPTS '--layout=reverse --height 50%'
+set -x FZF_DEFAULT_OPTS '--border --layout=reverse --height 60%'
 set -x PATH $PATH /usr/local/sbin
 
 set -x HOMEBREW_NO_AUTO_UPDATE 1
@@ -44,9 +43,13 @@ function gif
   rm palette.png
 end
 
+# File viewer using fzf
+function v
+  find $argv -type f | env FZF_DEFAULT_OPTS= fzf --preview-window=right:70% --preview 'string match -r binary (file --mime {}) || bat --style=numbers --color=always {}'
+end
+
 # File picker using fzf and opens in vim (e /path/)
-# Not suitable for multiple files
 function e
-  vim (find $argv | fzf)
+  vim (find $argv -type f | env FZF_DEFAULT_OPTS= fzf --preview 'head -n 100 {}')
 end
 
