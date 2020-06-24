@@ -43,7 +43,7 @@ function fish_prompt --description 'Write out the prompt'
 
   # Prompt
   set_color purple
-  echo -n ' ➜  '
+  echo -n ' ➜ '
   set_color normal
 
 end

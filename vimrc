@@ -1,3 +1,8 @@
+" Focus on center in insert mode
+autocmd InsertEnter * norm zz
+" Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
 set nowrap
 set autoread
 set autoindent
@@ -6,11 +11,13 @@ set backspace=2
 set laststatus=2
 set ttimeoutlen=50
 set updatetime=250
+set background=dark
 set number relativenumber
 set splitbelow splitright
+set wildmode=longest,list,full
 set hlsearch incsearch smartcase
 set list listchars=tab:..,trail:★
-set expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2
+set expandtab smarttab shiftround tabstop=2 softtabstop=2 shiftwidth=2
 
 " Key mappings
 inoremap (<cr> (<cr>)<esc>O<tab>
@@ -18,12 +25,12 @@ inoremap {<cr> {<cr>}<esc>O<tab>
 
 cnoremap help vert help
 
-nnoremap ∆ :m .+1<cr>==
-nnoremap ˚ :m .-2<cr>==
-vnoremap ∆ :m '>+1<cr>gv=gv
-vnoremap ˚ :m '<-2<cr>gv=gv
-inoremap ∆ <esc>:m .+1<cr>==gi
-inoremap ˚ <esc>:m .-2<cr>==gi
+nnoremap <C-j> :m .+1<cr>==
+nnoremap <C-k> :m .-2<cr>==
+vnoremap <C-j> :m '>+1<cr>gv=gv
+vnoremap <C-k> :m '<-2<cr>gv=gv
+inoremap <C-j> <esc>:m .+1<cr>==gi
+inoremap <C-k> <esc>:m .-2<cr>==gi
 
 let mapleader=","
 nmap <leader>q :qa<cr>
@@ -38,15 +45,14 @@ nmap <leader>b :Buffers<cr>
 
 " Vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
-  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
   Plug 'dag/vim-fish', { 'for': 'fish' }
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'itchyny/lightline.vim'
-  Plug 'gruvbox-community/gruvbox'
+  Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme codedark
 
 " Netrw tweaks
 let g:netrw_banner=0
