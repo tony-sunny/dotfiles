@@ -1,0 +1,17 @@
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+alias gitc="git checkout"
+alias gits="git status"
+alias gg="git gui"
+alias update="brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cleanup"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
+if command -v fnm  &> /dev/null; then
+  eval "$(fnm env --use-on-cd)"
+fi
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
