@@ -8,4 +8,6 @@ set tabstop=2
 
 set relativenumber
 
+set termguicolors
+
 let mapleader = ","
