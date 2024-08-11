@@ -18,3 +18,5 @@ cp macos/zshrc ~/.zshrc
 
 mkdir -p ~/.config/kitty
 cp -R macos/kitty/ ~/.config/kitty
+
+cp macos/starship.toml ~/.config/starship.toml
