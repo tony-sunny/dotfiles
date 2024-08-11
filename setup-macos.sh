@@ -10,8 +10,8 @@ brew install \
         zsh-syntax-highlighting
 
 cp macos/vimrc ~/.vimrc
-curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs \
-https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 vim +PlugInstall +qall 2>&1 /dev/null
 
 cp macos/zshrc ~/.zshrc
