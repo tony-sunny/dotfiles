@@ -16,4 +16,5 @@ vim +PlugInstall +qall 2>&1 /dev/null
 
 cp macos/zshrc ~/.zshrc
 
-cp macos/kitty.conf ~/.config/kitty/kitty.conf
+mkdir -p ~/.config/kitty
+cp -R macos/kitty/ ~/.config/kitty
