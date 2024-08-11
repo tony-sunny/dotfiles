@@ -1,4 +1,10 @@
+call plug#begin()
+  Plug 'vim-airline/vim-airline'
+  Plug 'joshdick/onedark.vim'
+call plug#end()
+
 syntax on
+colorscheme onedark
 
 set backspace=indent,eol,start
 set encoding=utf-8
@@ -7,7 +13,5 @@ set expandtab
 set tabstop=2
 
 set relativenumber
-
-set termguicolors
 
 let mapleader = ","
