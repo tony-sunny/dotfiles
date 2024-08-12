@@ -2,6 +2,14 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'joshdick/onedark.vim'
 call plug#end()
+" Airline config
+let g:airline_powerline_fonts=0
+if !exists('g:airline_symbols')
+  let g:airline_symbols={}
+endif
+let g:airline_symbols.linenr=' '
+let g:airline_symbols.colnr=':'
+let g:airline_symbols.maxlinenr=''
 
 syntax on
 colorscheme onedark
@@ -24,3 +32,4 @@ let mapleader = ","
 nnoremap <leader>q :qa<CR>
 nnoremap <leader>w <c-w><c-w>
 nnoremap <leader>e :Lexplore<CR>
+nnoremap <leader>h :vert help<space>
