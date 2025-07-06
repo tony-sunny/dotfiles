@@ -1,6 +1,9 @@
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export GOPATH=$HOME/workspace/go
+
 alias gitc="git checkout"
 alias gits="git status"
 alias gg="git gui"

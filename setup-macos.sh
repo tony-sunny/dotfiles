@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
 brew install \
+        bruno \
         fnm \
-        font-fira-code-nerd-font \
-        kitty \
         startship \
         vim \
         zsh-autosuggestions \
         zsh-syntax-highlighting
+brew install --cask \
+        ghostty \
+        localsend
 
 cp macos/vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -15,8 +17,5 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 vim +PlugInstall +qall 2>&1 /dev/null
 
 cp macos/zshrc ~/.zshrc
-
-mkdir -p ~/.config/kitty
-cp -R macos/kitty/ ~/.config/kitty
 
 cp macos/starship.toml ~/.config/starship.toml
